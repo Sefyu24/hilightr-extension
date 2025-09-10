@@ -1,0 +1,132 @@
+/* Only include the specific Tailwind utilities we need without the global resets */
+/* Basic utility classes needed for the toolbar */
+.fixed { position: fixed !important; }
+.flex { display: flex !important; }
+.items-center { align-items: center !important; }
+.justify-center { justify-content: center !important; }
+.gap-1 { gap: 0.25rem !important; }
+.gap-2 { gap: 0.5rem !important; }
+.p-0\.5 { padding: 0.125rem !important; }
+.p-1 { padding: 0.25rem !important; }
+.p-2 { padding: 0.5rem !important; }
+.pl-2 { padding-left: 0.5rem !important; }
+.ml-1 { margin-left: 0.25rem !important; }
+.w-4 { width: 1rem !important; }
+.w-5 { width: 1.25rem !important; }
+.w-6 { width: 1.5rem !important; }
+.h-4 { height: 1rem !important; }
+.h-5 { height: 1.25rem !important; }
+.h-6 { height: 1.5rem !important; }
+.bg-white { background-color: rgb(255 255 255) !important; }
+.bg-gray-100 { background-color: rgb(243 244 246) !important; }
+.bg-yellow-200 { background-color: rgb(254 240 138) !important; }
+.bg-pink-200 { background-color: rgb(251 207 232) !important; }
+.bg-lime-200 { background-color: rgb(190 242 100) !important; }
+.text-gray-500 { color: rgb(107 114 128) !important; }
+.text-gray-700 { color: rgb(55 65 81) !important; }
+.border { border-width: 1px !important; }
+.border-2 { border-width: 2px !important; }
+.border-l { border-left-width: 1px !important; }
+.border-white { border-color: rgb(255 255 255) !important; }
+.border-gray-200 { border-color: rgb(229 231 235) !important; }
+.rounded { border-radius: 0.25rem !important; }
+.rounded-lg { border-radius: 0.5rem !important; }
+.rounded-full { border-radius: 9999px !important; }
+.shadow-sm { box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05) !important; }
+.shadow-lg { box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -2px rgb(0 0 0 / 0.05) !important; }
+.transition-colors { transition-property: color, background-color, border-color, text-decoration-color, fill, stroke !important; }
+.transition-transform { transition-property: transform !important; }
+.duration-200 { transition-duration: 200ms !important; }
+.hover\:bg-gray-100:hover { background-color: rgb(243 244 246) !important; }
+.hover\:scale-110:hover { transform: scale(1.1) !important; }
+
+/* Custom animations for toolbar */
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateX(-50%) translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+}
+
+@keyframes slide-in {
+  from {
+    width: 0;
+    opacity: 0;
+  }
+  to {
+    width: auto;
+    opacity: 1;
+  }
+}
+
+/* Animation utility classes */
+.animate-fade-in {
+  animation: fade-in 0.2s ease-in-out;
+}
+
+.animate-slide-in {
+  animation: slide-in 0.2s ease-in-out;
+}
+
+/* Highlight styles - using CSS variables for flexibility */
+.hilightr-highlight {
+  cursor: pointer;
+  position: relative;
+  transition: opacity 0.2s ease;
+  /* Remove background-color from base class to let specific colors take precedence */
+}
+
+span.hilightr-highlight.hilightr-highlight-yellow {
+  --highlight-color: #FDE047; /* Bright yellow */
+  background-color: #FDE047 !important; /* Direct application */
+  color: #1f2937 !important; /* Dark text for bright background */
+}
+
+span.hilightr-highlight.hilightr-highlight-pink {
+  --highlight-color: #F472B6; /* Bright pink */
+  background-color: #F472B6 !important; /* Direct application */
+  color: #1f2937 !important; /* Dark text for bright background */
+}
+
+span.hilightr-highlight.hilightr-highlight-lime {
+  --highlight-color: #84CC16; /* Bright lime */
+  background-color: #84CC16 !important; /* Direct application */
+  color: #1f2937 !important; /* Dark text for bright background */
+}
+
+.hilightr-highlight:hover {
+  opacity: 0.8;
+}
+
+/* React root container - keeps it completely out of page layout */
+#hilightr-react-root {
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 0 !important;
+  height: 0 !important;
+  overflow: visible !important;
+  z-index: 2147483647 !important;
+  pointer-events: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  border: none !important;
+  outline: none !important;
+  box-sizing: content-box !important;
+  display: block !important;
+  transform: none !important;
+  transition: none !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+  clip: auto !important;
+  float: none !important;
+  clear: none !important;
+}
+
+#hilightr-react-root > * {
+  pointer-events: auto !important;
+}
